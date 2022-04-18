@@ -39,6 +39,20 @@ Install playwright from here:
 
 https://playwright.dev/docs/intro
 
+Make sure to install MSEdge 
 
+```bash
+npx playwright install msedge
+```
 
+Then run the tests by running:
 
+```bash
+npx playwright test
+```
+
+Or to see what it's doing: 
+
+```bash
+npx playwright test --headed
+```

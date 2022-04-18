@@ -1,7 +1,10 @@
 <template>
+  <h1>My Store</h1>
   <StoreCart :items="cartItems" v-on:removeFromCart="removeFromCart" />
-  <div v-for="item in availableItems" :key="item.itemName">
-    <StoreItem :item="item" v-on:addToCart="addToCart(item)" />
+  <div id="storeItems">
+    <div v-for="item in availableItems" :key="item.itemName">
+      <StoreItem :item="item" v-on:addToCart="addToCart(item)" />
+    </div>
   </div>
 </template>
 
@@ -30,7 +33,7 @@ export default {
       this.cartItems.push(item);
     },
     removeFromCart: function (itemIndex) {
-      this.cartItems.splice(itemIndex,1);
+      this.cartItems.splice(itemIndex, 1);
     },
   },
 };
