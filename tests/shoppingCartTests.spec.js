@@ -33,11 +33,11 @@ test.describe('Add and remove cart elements', () => {
 
         for (let i = 0; i < storeItemsCount; i++) {
             await page.locator('#storeItems > div >> nth=' + i + ' >> button').click();
-            let itemPrice = await page.locator('#cart > div >> nth=' + i +' >> div >> p >> nth=1').innerText();
+            let itemPrice = await page.locator('#cart > div >> nth=' + i +' >> div >> h6').innerText();
             priceSum = parseFloat(itemPrice) + priceSum;
         }
 
-        let finalSum = await page.locator('#cartSum >> p >> nth=1').innerText();
+        let finalSum = await page.locator('#cartSum >> h4 >> nth=1').innerText();
         await expect(priceSum).toEqual(parseFloat(finalSum));
     });
 });

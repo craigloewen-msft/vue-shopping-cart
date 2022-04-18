@@ -2,17 +2,23 @@
   <div>
     <h1>My Cart</h1>
     <div id="cart">
-      <div v-for="(item, itemIndex) in items" :key="itemIndex">
-        <div class="cartItemInfo">
-          <p>{{ item.name }}</p>
-          <p>{{ item.price }}</p>
+      <div class="card" v-for="(item, itemIndex) in items" :key="itemIndex">
+        <div class="cartItemInfo card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ item.price }}</h6>
+          <button
+            class="btn btn-secondary"
+            v-on:click="removeFromCart(itemIndex)"
+          >
+            Remove
+          </button>
         </div>
-        <button v-on:click="removeFromCart(itemIndex)">Remove</button>
       </div>
     </div>
     <div v-if="items.length > 0" id="cartSum">
-      <p>Sum: </p>
-        <p>{{ sum }}</p></div>
+      <h4>Sum:</h4>
+      <h4>{{ sum }}</h4>
+    </div>
   </div>
 </template>
 
@@ -44,8 +50,10 @@ export default {
 
 <style>
 .cartItemInfo {
-  display: flex;
-  justify-content: center;
+}
+
+#cartSum h4 {
+  margin-left: 10px;
 }
 
 .cartItemInfo p {
