@@ -33,7 +33,7 @@ test.describe('Add and remove cart elements', () => {
 
         for (let i = 0; i < storeItemsCount; i++) {
             await page.locator('#storeItems > div >> nth=' + i + ' >> button').click();
-            let itemPrice = await page.locator('#cart > div >> nth=' + i +' >> div >> h6').innerText();
+            let itemPrice = await page.locator('#cart > div >> nth=' + i +' >> div >> div >> .item-price').innerText();
             priceSum = parseFloat(itemPrice) + priceSum;
         }
 

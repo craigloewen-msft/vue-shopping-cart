@@ -5,7 +5,10 @@
       <div class="card" v-for="(item, itemIndex) in items" :key="itemIndex">
         <div class="cartItemInfo card-body">
           <h5 class="card-title">{{ item.name }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ item.price }}</h6>
+          <div class="price-display">
+            <h6 class="card-subtitle mb-2 text-muted">$</h6>
+            <h6 class="card-subtitle mb-2 text-muted item-price">{{ item.price }}</h6>
+          </div>
           <button
             class="btn btn-secondary"
             v-on:click="removeFromCart(itemIndex)"
@@ -50,6 +53,10 @@ export default {
 
 <style>
 .cartItemInfo {
+}
+
+.price-display {
+  display: flex;
 }
 
 #cartSum h4 {
