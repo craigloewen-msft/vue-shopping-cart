@@ -25,10 +25,10 @@
         "type=bind,source=/tmp/.X11-unix,target=/tmp/.X11-unix"
     ],
 
-    "containerEnv": {"DISPLAY":"${localEnv:DISPLAY}"},
+    "containerEnv": {"DISPLAY":":0"},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install && npx --yes playwright install",
+	"postCreateCommand": "DISPLAY=:0 && npm install && npx --yes playwright install",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node"
